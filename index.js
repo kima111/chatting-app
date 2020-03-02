@@ -11,6 +11,10 @@ const app = express();
 const server=http.createServer(app);
 const io = socketio(server);
 
+if(proccess.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"))
+}
+
 io.on('connection', (socket) => {
     socket.on('join', ({name, room}, callback)=>{
        const{error, user} = addUser({id: socket.id, name, room});
