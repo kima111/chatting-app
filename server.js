@@ -11,7 +11,7 @@ const app = express();
 const server=http.createServer(app);
 const io = socketio(server);
 
-if(proccess.env.NODE_ENV === "production"){
+if(process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"))
 }
 
