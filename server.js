@@ -14,7 +14,7 @@ const io = socketio(server);
 if(process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"))
 }
-io.serveClient('transports', ['websocket']);
+// io.serveClient('transports', ['websocket']);
 
 io.on('connection', (socket) => {
     socket.on('join', ({name, room}, callback)=>{
