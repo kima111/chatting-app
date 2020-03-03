@@ -17,7 +17,9 @@ export default function Chat({location}) {
 
     useEffect(()=>{
         const {name, room} = queryString.parse(location.search)
-        
+        var socket = io.connect(host, {
+            transports: ['websocket']
+        });
         socket = io(ENDPOINT);
 
         setName(name);
